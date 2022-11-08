@@ -3,10 +3,10 @@ const data = [{ coords: [-71.0789, 42.363] }, { coords: [-71.118, 42.381] }];
 const deckgl = new deck.DeckGL({
   container: "map",
   // Set your Mapbox access token here
-  // mapboxApiAccessToken:
-  //   "pk.eyJ1Ijoibmlrby1kZWxsaWMiLCJhIjoiY2w5c3p5bGx1MDh2eTNvcnVhdG0wYWxkMCJ9.4uQZqVYvQ51iZ64yG8oong",
-  // // Set your Mapbox style here
-  // mapStyle: "mapbox://styles/niko-dellic/cl9t226as000x14pr1hgle9az",
+  mapboxApiAccessToken:
+    "pk.eyJ1Ijoibmlrby1kZWxsaWMiLCJhIjoiY2w5c3p5bGx1MDh2eTNvcnVhdG0wYWxkMCJ9.4uQZqVYvQ51iZ64yG8oong",
+  // Set your Mapbox style here
+  mapStyle: "mapbox://styles/niko-dellic/cl9t226as000x14pr1hgle9az",
   initialViewState: {
     latitude: 42.36476,
     longitude: -71.10326,
