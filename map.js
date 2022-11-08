@@ -110,9 +110,9 @@ locationButton.addEventListener("click", () => {
 
       locationButton.textContent =
         "Where am I? " +
-        position.coords.latitude +
+        position.coords.latitude.toFixed(3) +
         ", " +
-        position.coords.longitude;
+        position.coords.longitude.toFixed(3);
       // create a deck gl layer for the users location
       const layer = new deck.IconLayer({
         id: "location",
