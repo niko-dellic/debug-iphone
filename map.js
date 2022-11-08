@@ -3,10 +3,10 @@ const data = [{ coords: [-71.0789, 42.363] }, { coords: [-71.118, 42.381] }];
 const deckgl = new deck.DeckGL({
   container: "map",
   // Set your Mapbox access token here
-  mapboxApiAccessToken:
-    "pk.eyJ1Ijoibmlrby1kZWxsaWMiLCJhIjoiY2w5c3p5bGx1MDh2eTNvcnVhdG0wYWxkMCJ9.4uQZqVYvQ51iZ64yG8oong",
-  // Set your Mapbox style here
-  mapStyle: "mapbox://styles/niko-dellic/cl9t226as000x14pr1hgle9az",
+  // mapboxApiAccessToken:
+  //   "pk.eyJ1Ijoibmlrby1kZWxsaWMiLCJhIjoiY2w5c3p5bGx1MDh2eTNvcnVhdG0wYWxkMCJ9.4uQZqVYvQ51iZ64yG8oong",
+  // // Set your Mapbox style here
+  // mapStyle: "mapbox://styles/niko-dellic/cl9t226as000x14pr1hgle9az",
   initialViewState: {
     latitude: 42.36476,
     longitude: -71.10326,
@@ -54,46 +54,46 @@ function flyToClick(coords) {
 }
 
 // get current location
-const successCallback = (position) => {
-  // add new point layer of current location to deck gl
-  const layer = new deck.IconLayer({
-    id: "location",
-    data: [
-      {
-        position: [position.coords.longitude, position.coords.latitude],
-      },
-    ],
-    pickable: true,
-    iconAtlas:
-      "https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.png",
-    iconMapping: ICON_MAPPING,
-    getIcon: (d) => "marker",
-    sizeScale: 15,
-    getPosition: (d) => d.position,
-    getSize: 10,
-    getColor: [255, 255, 255],
-  });
+// const successCallback = (position) => {
+//   // add new point layer of current location to deck gl
+//   const layer = new deck.IconLayer({
+//     id: "location",
+//     data: [
+//       {
+//         position: [position.coords.longitude, position.coords.latitude],
+//       },
+//     ],
+//     pickable: true,
+//     iconAtlas:
+//       "https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.png",
+//     iconMapping: ICON_MAPPING,
+//     getIcon: (d) => "marker",
+//     sizeScale: 15,
+//     getPosition: (d) => d.position,
+//     getSize: 10,
+//     getColor: [255, 255, 255],
+//   });
 
-  deckgl.setProps({
-    layers: [...deckgl.props.layers, layer],
-  });
-};
+//   deckgl.setProps({
+//     layers: [...deckgl.props.layers, layer],
+//   });
+// };
 
-const errorCallback = (error) => {
-  console.log(error);
-};
+// const errorCallback = (error) => {
+//   console.log(error);
+// };
 
-// create async function to await for current location and then return the promise as lat long coordinates then resolve the promise
-function getCurrentLocation() {
-  const currentLocation = navigator.geolocation.getCurrentPosition(
-    successCallback,
-    errorCallback
-  );
-  return currentLocation;
-}
-if (navigator.geolocation) {
-  getCurrentLocation();
-}
+// // create async function to await for current location and then return the promise as lat long coordinates then resolve the promise
+// function getCurrentLocation() {
+//   const currentLocation = navigator.geolocation.getCurrentPosition(
+//     successCallback,
+//     errorCallback
+//   );
+//   return currentLocation;
+// }
+// if (navigator.geolocation) {
+//   getCurrentLocation();
+// }
 
 const ICON_MAPPING = {
   marker: { x: 0, y: 0, width: 128, height: 128, mask: true },
