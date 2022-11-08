@@ -1,5 +1,3 @@
-document.addEventListener("contextmenu", (event) => event.preventDefault()); //disable right click for map
-
 const data = [{ coords: [-71.0789, 42.363] }, { coords: [-71.118, 42.381] }];
 
 const deckgl = new deck.DeckGL({
