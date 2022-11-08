@@ -103,6 +103,7 @@ const locationButton = document.createElement("div");
 locationButton.textContent = "Where am I?";
 locationButton.id = "location-button";
 locationButton.addEventListener("click", () => {
+  console.log("yea");
   // when clicked, get the users location
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
