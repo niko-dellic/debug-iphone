@@ -1,49 +1,24 @@
 <html>
   <head>
-    <!-- deck.gl standalone bundle -->
-    <script src="https://unpkg.com/deck.gl@^8.8.0/dist.min.js"></script>
-    <script src="https://unpkg.com/@deck.gl/carto@^8.8.0/dist.min.js"></script>
-    <!-- Mapbox dependencies -->
-    <!-- <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
-    <link
-      href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.css"
-      rel="stylesheet"
-    /> -->
+    <!-- 02 deck.gl dependencies -->
+    <script src="https://unpkg.com/deck.gl@^8.9.0-alpha.5/dist.min.js"></script>
 
-    <title>CARTO deck.gl example</title>
-    <style type="text/css">
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: UberMove, Helvetica, Arial, sans-serif;
-      }
-      #container {
-        width: 100vw;
-        height: 100vh;
-      }
-    </style>
+    <!-- 01 Mapbox dependencies -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+
+    <!-- 04 connection to style.css -->
+    <link rel="stylesheet" href="./style.css" />
+    <title>debug iphone</title>
   </head>
 
   <body>
-    <div id="container"></div>
+    <!-- map container that map.js points towards -->
+    <div id="map"></div>
+    <!-- 05 connection to map.js -->
+    <script type="module" src="./map.js"></script>
   </body>
-
-  <script type="text/javascript">
-    const cartoMapId = "ff6ac53f-741a-49fb-b615-d040bc5a96b8";
-
-    // Get map info from CARTO and update deck
-    deck.carto
-      .fetchMap({ cartoMapId })
-      .then(({ initialViewState, mapStyle, layers }) => {
-        const MAP_STYLE = `https://basemaps.cartocdn.com/gl/${mapStyle.styleType}-gl-style/style.json`;
-        console.log(MAP_STYLE);
-        const deckgl = new deck.DeckGL({
-          container: "container",
-          controller: true,
-          mapStyle: MAP_STYLE,
-          initialViewState,
-          layers,
-        });
-      });
-  </script>
 </html>
